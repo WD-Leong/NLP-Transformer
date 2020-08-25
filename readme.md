@@ -4,7 +4,7 @@ This repository contains my implementation of the [Transformer Network](https://
 
 This model is trained on a few data sets, including:
 * [Cornell Movie Dataset](https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
-* Tweet Dataset
+* [Tweet Dataset](https://github.com/Marsan-Ma-zz/chat_corpus)
 
 For the Cornell Movie Dataset, the processing code follows this [script](https://github.com/suriyadeepan/datasets/blob/master/seq2seq/cornell_movie_corpus/scripts/prepare_data.py) closely.
 

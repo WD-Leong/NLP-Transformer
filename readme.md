@@ -1,6 +1,6 @@
 # Sequence-to-Sequence Transformer Network
 
-This repository contains my implementation of the [Transformer Network](https://arxiv.org/abs/1706.03762) with some minor changes - (i) positional embedding at each layer of the encoder and decoder is learnt, and (ii) the final output has a residual connection with its input embeddings. To account for limited compute resources, the training step breaks down the training batch into sub-batches and accumulates the gradient before averaging and updating the weights via the `sub_batch_train_step` function. Generally, it is observed that the Transformer Network's training is more stable with a batch size between 128 and 512. Sub-word tokenization is supported via `byte_pair_encoding.py` script. 
+This repository contains an implementation of the [Transformer Network](https://arxiv.org/abs/1706.03762) with some minor changes - (i) positional embedding at each layer of the encoder and decoder is learnt, and (ii) the final output has a residual connection with its input embeddings. To account for limited compute resources, the training step breaks down the training batch into sub-batches and accumulates the gradient before averaging and updating the weights via the `sub_batch_train_step` function. Generally, it is observed that the Transformer Network's training is more stable with a batch size between 128 and 512. Sub-word tokenization is supported via `byte_pair_encoding.py` script. 
 
 This model is trained on a few data sets, including:
 * [Cornell Movie Dataset](https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
@@ -219,7 +219,29 @@ i don mr you my woody and yet it EOS PAD
 Actual Response:
 well that depends do you have a bathroom
 --------------------------------------------------
+Iteration 25000:
+Average Loss: 10.241722373962402
+
+Input Phrase:
+yes it reminds me of home
+Generated Phrase:
+is EOS PAD PAD PAD PAD PAD PAD PAD PAD PAD
+Actual Response:
+where superman s from krypton
+--------------------------------------------------
+Iteration 30000:
+Average Loss: 9.130070762634277
+
+Input Phrase:
+i m fine still working with my father
+Generated Phrase:
+you don hold right tonight EOS tom you father EOS PAD
+Actual Response:
+and what does he do again
+--------------------------------------------------
 ```
+
+![tranformer_learning](train_progress_transformer_dialogue.png)
 
 ### Testing the Dialogue Transformer Network Chatbot
 Having trained the chatbot, we can now try out some sample responses using the `movie_dialogue_test.py` script. While in an actual scenario, the replies after the `EOS` token should be disregarded, we display the entire response of the trained model.
@@ -230,28 +252,35 @@ Enter your phrase: hello
 Input Phrase:
 hello
 Generated Phrase:
-hello EOS 
+hi EOS 
 --------------------------------------------------
 Enter your phrase: how are you
 
 Input Phrase:
 how are you
 Generated Phrase:
-i m okay how are you EOS
+fine thank EOS
 --------------------------------------------------
-Enter your phrase: how long has it been
+Enter your phrase: what time is it
 
 Input Phrase:
-how long has it been
+what time is it
 Generated Phrase:
-three years EOS
+twelve o clock EOS
 --------------------------------------------------
 Enter your phrase: how much does it cost
 
 Input Phrase:
 how much does it cost
 Generated Phrase:
-five thousand dollars EOS
+five dollars EOS
+--------------------------------------------------
+Enter your phrase: what did he tell you
+
+Input Phrase:
+what did he tell you
+Generated Phrase:
+he didn t hear it nothin EOS
 --------------------------------------------------
 Enter your phrase: goodbye
 
@@ -261,7 +290,7 @@ Generated Phrase:
 goodbye EOS PAD PAD PAD PAD PAD PAD PAD PAD PAD
 --------------------------------------------------
 ```
-As we can observe, the chatbot appears to generate relatively proper responses. It is also able to understand and reply when asked questions relating to time or place, as seen from its responses to `where do you come from`, `how long has it been` and `how much does it cost`.
+As we can observe, the chatbot appears to generate relatively proper responses. It is also able to understand and reply when asked questions relating to time or place, as seen from its responses to `what time is it` and `how much does it cost`. The slang can also be observed to be learnt, as seen from the reply `he didn t hear it nothin`.
 
 ### Conclusion
 A dialogue chatbot using both the movie dialogue and Twitter dataset. Due to computation constraints, the encoder and decoder length were both set to 10, and the standard base Transformer network was used with some minor modifications. Depending on the scenario, it supports both byte-pair encoding as well as joint vocabulary. The modified Transformer model can be observed to provide proper replies in general. The model

@@ -12,7 +12,11 @@ To run the chatbot, set the paths and parameters in the various scripts accordin
 ```
 python process_movie_dialogue.py
 ```
-followed by
+if word tokens are used, or
+```
+python process_movie_dialogue_subword.py
+```
+then followed by
 ```
 python movie_dialogue_transformer_tf_ver2.py
 ```
@@ -123,7 +127,13 @@ where `word2idx` is a dictionary mapping the word tokens into their correspondin
 
 The model has approximately 57 million parameters as returned by `seq2seq_model.summary()` function. As our model is encapsulated in a custom class and applied without using the standard `tf.keras` functionalities, the summary of the model is unable to breakdown the number of parameters at each step.
 ```
-To be added.
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+Total params: 21,095,168
+Trainable params: 21,095,168
+Non-trainable params: 0
+_________________________________________________________________
 ```
 Due to limitations on the GPU card, we accumulate the gradients manually across sub-batches of 64, then average it to apply the overall weight update across a larger batch of 256 examples. 
 ```
@@ -242,6 +252,8 @@ and what does he do again
 ```
 
 ![tranformer_learning](train_progress_transformer_dialogue.png)
+
+Fig. 1: Training Progress of the Chatbot
 
 ### Testing the Dialogue Transformer Network Chatbot
 Having trained the chatbot, we can now try out some sample responses using the `movie_dialogue_test.py` script. While in an actual scenario, the replies after the `EOS` token should be disregarded, we display the entire response of the trained model.

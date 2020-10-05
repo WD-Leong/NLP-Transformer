@@ -16,7 +16,7 @@ if word tokens are used, or
 ```
 python process_movie_dialogue_subword.py
 ```
-then followed by
+if sub-word tokens are used. After which, run
 ```
 python movie_dialogue_transformer_tf_ver2.py
 ```

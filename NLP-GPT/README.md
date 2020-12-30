@@ -35,3 +35,10 @@ who is it
 Generated Response:
 it s me rock EOS PAD PAD PAD PAD PAD PAD PAD PAD PAD PAD PAD PAD PAD
 ```
+
+### PyTorch Support
+The relevant modules have been written using PyTorch as well. Run
+```
+python movie_dialogue_torch_gpt.py
+```
+to train the model using the PyTorch library. The data is pre-processed in the same manner as its Tensorflow counterpart.

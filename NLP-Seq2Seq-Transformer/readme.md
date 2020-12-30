@@ -304,5 +304,12 @@ goodbye EOS PAD PAD PAD PAD PAD PAD PAD PAD PAD
 ```
 As we can observe, the chatbot appears to generate relatively proper responses. It is also able to understand and reply when asked questions relating to time or place, as seen from its responses to `what time is it` and `how much does it cost`. The slang can also be observed to be learnt, as seen from the reply `he didn t hear it nothin`.
 
+### PyTorch Support
+The relevant modules have been written using PyTorch as well. Run
+```
+python movie_dialogue_torch_transformer.py
+```
+to train the model using the PyTorch library. The data is pre-processed in the same manner as its Tensorflow counterpart.
+
 ### Conclusion
-A dialogue chatbot using both the movie dialogue and Twitter dataset. Due to computation constraints, the encoder and decoder length were both set to 10, and the standard base Transformer network was used with some minor modifications. Depending on the scenario, it supports both byte-pair encoding as well as joint vocabulary. The modified Transformer model can be observed to provide proper replies in general. The model
+A dialogue chatbot using both the movie dialogue and Twitter dataset. Due to computation constraints, the encoder and decoder length were both set to 10, and the standard base Transformer network was used with some minor modifications. Depending on the scenario, it supports both byte-pair encoding as well as joint vocabulary. The modified Transformer model can be observed to provide proper replies in general. 

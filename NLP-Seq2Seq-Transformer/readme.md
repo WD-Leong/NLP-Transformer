@@ -309,7 +309,11 @@ The relevant modules have been written using PyTorch as well. Run
 ```
 python movie_dialogue_torch_transformer.py
 ```
-to train the model using the PyTorch library. The data is pre-processed in the same manner as its Tensorflow counterpart.
+to train the model using the PyTorch library, and
+```
+python movie_dialogue_torch_transformer_test.py
+```
+to do inference. The data is pre-processed in the same manner as its Tensorflow counterpart.
 
 ### Conclusion
 A dialogue chatbot using both the movie dialogue and Twitter dataset. Due to computation constraints, the encoder and decoder length were both set to 10, and the standard base Transformer network was used with some minor modifications. Depending on the scenario, it supports both byte-pair encoding as well as joint vocabulary. The modified Transformer model can be observed to provide proper replies in general. 

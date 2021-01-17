@@ -11,7 +11,11 @@ Before training the model, first process the data by running
 ```
 python process_movie_dialogue.py
 ```
-followed by
+to use word tokens, or 
+```
+python process_movie_dialogue_subword.py
+```
+to use sub-word tokens, followed by
 ```
 python movie_dialogue_tf_ver2_gpt.py
 ```
@@ -42,6 +46,28 @@ how are you ? SOS i am feeling fine . EOS
 ```
 the decoder response will be taken as the GPT model's prediction following the `SOS` token, which is `i am feeling fine . EOS`.
 
+The GPT model is also trained on the.
+
+For the Reddit jokes dataset, run
+```
+python process_reddit_jokes.py
+python reddit_jokes_tf_ver2_gpt.py
+```
+to train the model on word tokens, or
+```
+python process_reddit_jokes_subword.py
+python reddit_jokes_subword_tf_ver2_gpt.py
+```
+to train the model on sub-word tokens. To perform inference, run
+```
+python reddit_jokes_tf_ver2_gpt_test.py
+```
+for word tokens, or
+```
+python reddit_jokes_subword_tf_ver2_gpt_test.py
+```
+for sub-word tokens.
+
 ## Outputs
 The GPT model on the movie dialogue dataset using a Nvidia Quadro P1000 4GB Graphics Card for 20000 iterations. Below are some sample outputs.
 ```
@@ -66,4 +92,8 @@ The relevant modules have been written using PyTorch as well. Run
 ```
 python movie_dialogue_torch_gpt.py
 ```
-to train the model using the PyTorch library. The data is pre-processed in the same manner as its Tensorflow counterpart.
+to train the model using the PyTorch library. For inference, run
+```
+python movie_dialogue_torch_gpt_test.py
+```
+The data is pre-processed in the same manner as its Tensorflow counterpart.

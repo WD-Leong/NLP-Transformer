@@ -46,9 +46,7 @@ how are you ? SOS i am feeling fine . EOS
 ```
 the decoder response will be taken as the GPT model's prediction following the `SOS` token, which is `i am feeling fine . EOS`.
 
-The GPT model is also trained on the.
-
-For the Reddit jokes dataset, run
+The GPT model is also trained on the [Reddit Jokes dataset](https://github.com/taivop/joke-dataset). The jokes dataset is conditioned on the score of the data - `bad_joke` denotes jokes with a score less than or equal to 12, `ok_joke` denotes jokes which have a score between 12 and 50 and `good_joke` are jokes which have a score greater than or equal to 50. For the Reddit jokes dataset, run
 ```
 python process_reddit_jokes.py
 python reddit_jokes_tf_ver2_gpt.py
@@ -96,4 +94,4 @@ to train the model using the PyTorch library. For inference, run
 ```
 python movie_dialogue_torch_gpt_test.py
 ```
-The data is pre-processed in the same manner as its Tensorflow counterpart.
+The data is pre-processed in the same manner as its Tensorflow counterpart, but it is worth noting that the PyTorch code uses the Weighted Adam Optimizer `AdamW` and not the Adam optimizer.

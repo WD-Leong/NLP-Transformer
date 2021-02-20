@@ -30,10 +30,9 @@ python twitter_transformer_tf_ver2.py
 ```
 respectively. An limit of 10 words/subwords at both the encoder and decoder is set but this can be modified. 
 
-## Algorithm Write-Up
-A large portion of this write-up was taken from my [Red Dragon NLP assignment](https://github.com/WD-Leong/Red-Dragon-AI-Course-Advanced-NLP-Assignment-2). The slightly modified Transformer architecture is presented in this write-up, as well as including results from the Twitter chatbot. The hardware used is a Nvidia Quadro P1000 4GB Graphics card.
+A large portion of this write-up was taken from my [Red Dragon NLP assignment](https://github.com/WD-Leong/Red-Dragon-AI-Course-Advanced-NLP-Assignment-2), and the slightly modified Transformer architecture is presented in this write-up. The hardware used is a Nvidia Quadro P1000 4GB Graphics card.
 
-### Data Pre-processing
+## Data Pre-processing
 A simple pre-processing for the data was applied, including lower-casing, removing punctuation and applying word tokenisation to the text thereafter. Some examples of the processed data is shown below.
 | Movie Dialogue Input | Movie Dialogue Output |
 | -------------------- | --------------------- |
@@ -49,7 +48,7 @@ A simple pre-processing for the data was applied, including lower-casing, removi
 
 Only single turn conversation is considered in the pre-processing step. Hence, a multi-turn conversation which involves a few rounds of dialogue between the parties is not considered.
 
-### Generating the Vocabulary
+## Generating the Vocabulary
 To generate the vocabulary, certain symbols like `\\u`, `\\i`, as well as newlines `\n` and tabs `\t` are replaced in the movie dialogue dataset. The regular expression `re.sub(r"[^\w\s]", " ", tmp_qns)` was used to remove punctuations from the text for all datasets. It is possible to use `wordpunct_tokenize` from the `nltk` package to process the data as well.
 
 For the movie dialogue dataset, the processing steps can be found in the snippet:
@@ -109,10 +108,10 @@ a_word2idx = dict([
 ```
 depending on the configuration that is desired.
 
-### Our Transformer Model
+## Our Transformer Model
 This Transformer model has some slight deviations to the original model in that (i) it learns a positional embedding layer at each layer of the encoder and decoder, (ii) it adds a residual connection between the input embeddings at both the encoder and decoder, and (iii) applies layer normalisation before the residual connection.
 
-#### Transformer Parameters
+### Transformer Parameters
 The model uses 3 layers for both the encoder and decoder, an embedding dimension of 256, a hidden size of 256 and a feed-forward size of 1024. The sequence length at both the encoder and decoder was set to 10, which led to a total of approximately 94000 movie dialogue sequences, and a vocabulary of the most common 8000 words was used. A dropout probability of 0.1 was set to allow the model to generalise and the gradient was clipped at 1.0 during training. The loss function is the cross-entropy loss function and the Adam optimizer was used to perform the weight updates.
 
 Before sending the data into the Transformer model, the dialogue sequences need to be converted into their corresponding integer labels. This is done via
@@ -154,7 +153,7 @@ with tf.GradientTape() as grad_tape:
 ```
 Following the [T5 paper](https://arxiv.org/abs/1910.10683), 2000 warmup steps with a constant learning rate was applied `step_val = float(max(n_iter+1, warmup_steps))**(-0.5)`.
 
-### Inference with the Transformer
+## Inference with the Transformer
 Greedy decoding is implemented in the `infer` function within the `TransformerNetwork` class.
 ```
 def infer(self, x_encode, x_decode):
@@ -195,7 +194,7 @@ next_embed = tf.matmul(tf.nn.softmax(tmp_logit), self.W_dec_emb)
 ```
 to reduce the extent of error propagation caused by incorrect prediction of any label during the inference process.
 
-### Training Progress of the Transformer Network
+## Training Progress of the Transformer Network
 As the training progressed, the Transformer network's response was logged and presented in this section.
 ```
 --------------------------------------------------
@@ -255,7 +254,7 @@ and what does he do again
 
 Fig. 1: Training Progress of the Chatbot
 
-### Testing the Dialogue Transformer Network Chatbot
+## Testing the Dialogue Transformer Network Chatbot
 Having trained the chatbot, we can now try out some sample responses using the `movie_dialogue_test.py` script. While in an actual scenario, the replies after the `EOS` token should be disregarded, we display the entire response of the trained model.
 ```
 --------------------------------------------------
@@ -304,7 +303,7 @@ goodbye EOS PAD PAD PAD PAD PAD PAD PAD PAD PAD
 ```
 As we can observe, the chatbot appears to generate relatively proper responses. It is also able to understand and reply when asked questions relating to time or place, as seen from its responses to `what time is it` and `how much does it cost`. The slang can also be observed to be learnt, as seen from the reply `he didn t hear it nothin`.
 
-### PyTorch Support
+## PyTorch Support
 The relevant modules have been written using PyTorch as well. Run
 ```
 python movie_dialogue_torch_transformer.py
@@ -315,5 +314,5 @@ python movie_dialogue_torch_transformer_test.py
 ```
 to do inference. The data is pre-processed in the same manner as its Tensorflow counterpart.
 
-### Conclusion
+## Conclusion
 A dialogue chatbot using both the movie dialogue and Twitter dataset. Due to computation constraints, the encoder and decoder length were both set to 10, and the standard base Transformer network was used with some minor modifications. Depending on the scenario, it supports both byte-pair encoding as well as joint vocabulary. The modified Transformer model can be observed to provide proper replies in general. 

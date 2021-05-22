@@ -95,3 +95,18 @@ to train the model using the PyTorch library. For inference, run
 python movie_dialogue_torch_gpt_test.py
 ```
 The data is pre-processed in the same manner as its Tensorflow counterpart, but it is worth noting that the PyTorch code uses the Weighted Adam Optimizer `AdamW` and not the Adam optimizer.
+
+## Trained Models
+Some of the trained models can be downloaded via:
+
+| Model Name | Link |
+| ---------- | ---- |
+| PyTorch Dialogue Word GPT | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/dialogue_transformer_gpt |
+| TensorFlow v2 Sub-word GPT | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/dialogue_subword_gpt.zip |
+
+The data sets can be downloaded at:
+
+| Data Type | Link |
+| --------- | ---- |
+| Movie Dialogue Word Data | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/movie_dialogues.pkl |
+| Movie Dialogue Sub-word Data | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/movie_dialogues_subword.pkl |

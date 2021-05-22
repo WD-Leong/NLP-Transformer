@@ -314,5 +314,22 @@ python movie_dialogue_torch_transformer_test.py
 ```
 to do inference. The data is pre-processed in the same manner as its Tensorflow counterpart.
 
+## Trained Models
+Some of the trained models can be downloaded via:
+
+| Model Name | Link |
+| ---------- | ---- |
+| PyTorch Dialogue Word GPT | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/dialogue_transformer_gpt |
+| TensorFlow v2 Sub-word GPT | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/dialogue_subword_gpt.zip |
+| PyTorch Dialogue Word Seq2Seq Transformer | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/transformer_seq2seq |
+| TensorFlow v2 Dialogue Seq2Seq Transformer | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/transformer_seq2seq.zip |
+
+The data can be downloaded via:
+
+| Data Type | Link |
+| --------- | ---- |
+| Movie Dialogue Word Data | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/movie_dialogues.pkl |
+| Movie Dialogue Sub-word Data | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/movie_dialogues_subword.pkl |
+
 ## Conclusion
 A dialogue chatbot using both the movie dialogue and Twitter dataset. Due to computation constraints, the encoder and decoder length were both set to 10, and the standard base Transformer network was used with some minor modifications. Depending on the scenario, it supports both byte-pair encoding as well as joint vocabulary. The modified Transformer model can be observed to provide proper replies in general. 

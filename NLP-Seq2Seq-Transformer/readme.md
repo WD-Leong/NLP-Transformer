@@ -319,8 +319,6 @@ Some of the trained models can be downloaded via:
 
 | Model Name | Link |
 | ---------- | ---- |
-| PyTorch Dialogue Word GPT | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/dialogue_transformer_gpt |
-| TensorFlow v2 Sub-word GPT | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/dialogue_subword_gpt.zip |
 | PyTorch Dialogue Word Seq2Seq Transformer | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/transformer_seq2seq |
 | TensorFlow v2 Dialogue Seq2Seq Transformer | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/transformer_seq2seq.zip |
 

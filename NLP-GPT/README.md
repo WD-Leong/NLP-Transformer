@@ -110,3 +110,6 @@ The data sets can be downloaded at:
 | --------- | ---- |
 | Movie Dialogue Word Data | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/movie_dialogues.pkl |
 | Movie Dialogue Sub-word Data | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/movie_dialogues_subword.pkl |
+
+## Enhancements
+Following the lines of [Nvidia's work](https://arxiv.org/abs/2107.02192), the GPT was modified to account for local attention windows which increased as the network goes deeper. To use this enhancement, change the import from `import tf_ver2_gpt` to `import tf_ver2_gpt_module`.

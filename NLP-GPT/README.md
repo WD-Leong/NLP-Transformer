@@ -112,4 +112,11 @@ The data sets can be downloaded at:
 | Movie Dialogue Sub-word Data | https://github.com/WD-Leong/NLP-Transformer/releases/download/v0.9/movie_dialogues_subword.pkl |
 
 ## Enhancements
+1. Local Attention:
 Following the lines of [Nvidia's work](https://arxiv.org/abs/2107.02192), the GPT was modified to account for local attention windows which increased as the network goes deeper. To use this enhancement, change the import from `import tf_ver2_gpt` to `import tf_ver2_gpt_module`.
+
+2. Relative Position Encoding:
+As described in the [paper](https://arxiv.org/abs/1803.02155), the GPT could incorporate relative position encoding by changing the import from `import tf_ver2_gpt` to `import tf_ver2_gpt_rel_pos`.
+
+3. Residual Attention:
+An implementation of [Transformers Likes Residual Attention](https://arxiv.org/abs/2012.11747) is implemented where the GPT model incorporates residual attention. To use this module, change `import tf_ver2_gpt` to `import tf_ver2_gpt_res_attn`.

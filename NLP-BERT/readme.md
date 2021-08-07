@@ -13,7 +13,7 @@ to perform inference. Please note that this implementation trains the model from
 The plots below show the training and validation progress of the model.
 | Training Loss | Validation Accuracy |
 | ------------- | ------------------- |
-| ![training_loss](training_loss.JPG) | ![validation_accuracy](validation_accuracy.JPG) |
+| ![training_loss](training_loss.jpg) | ![validation_accuracy](validation_accuracy.jpg) |
 
 ## Evaluation Metrics
 The final evaluation on the validation dataset is as follows:

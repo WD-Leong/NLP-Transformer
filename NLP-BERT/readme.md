@@ -2,6 +2,7 @@
 This repository contains an implementation of [Bidirectional Encoder Representations from Transformers](https://arxiv.org/abs/1810.04805v2), with the architecture of BERT shown in Fig. 1. 
 
 ![BERT_architecture](BERT_network.JPG)
+Fig. 1: BERT model architecture (as shown in the [paper](https://arxiv.org/abs/1810.04805v2))
 
 ## Training and Validation Progress
 The model is trained on a an [emotional classification dataset](https://github.com/dair-ai/emotion_dataset) and the [YELP polarity dataset](https://course.fast.ai/datasets). For the former, run

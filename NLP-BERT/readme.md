@@ -22,7 +22,9 @@ to learn the vocabulary and format the data, followed by
 ```
 python yelp_reviews_tf_ver2_bert.py
 ```
-to train the BERT polarity classifier. Please note that this implementation trains the model from scratch using the labelled data and no fine-tuning or transfer learning is performed.
+to train the BERT polarity classifier. 
+
+Please note that this implementation trains the model from scratch using the labelled data and no fine-tuning or transfer learning is performed. In addition, word tokens were used in this implementation and the model using sub-word tokenization is still work-in-progress.
 
 ## Training and Validation Progress of the Emotion Classification Model
 The plots below show the training and validation progress of the model.

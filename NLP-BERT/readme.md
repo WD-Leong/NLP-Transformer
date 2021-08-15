@@ -63,7 +63,7 @@ weighted avg       0.93      0.93      0.93     37999
 ```
 
 ## Testing in the Wild
-The model's inference results are presented for some custom inputs:
+The emotion classifier model's inference results on some custom inputs is presented below:
 ```
 Enter input: the waiter was very rude and unprofessional
 Input Phrase:

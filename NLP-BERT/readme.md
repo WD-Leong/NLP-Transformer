@@ -62,3 +62,33 @@ For the YELP polarity model, the evaluation on the validation dataset is as foll
 weighted avg       0.93      0.93      0.93     37999
 ```
 
+## Testing in the Wild
+The model's inference results are presented for some custom inputs:
+```
+Enter input: the waiter was very rude and unprofessional
+Input Phrase:
+the waiter was very rude and unprofessional
+Predicted Emotion: anger
+--------------------------------------------------
+Enter input: i was worried that i may not like the food
+Input Phrase:
+i was worried that i may not like the food
+Predicted Emotion: fear
+--------------------------------------------------
+Enter input: i was disappointed by the quality of the pasta
+Input Phrase:
+i was disappointed by the quality of the pasta
+Predicted Emotion: sadness
+--------------------------------------------------
+Enter input: the food was surprisingly good
+Input Phrase:
+the food was surprisingly good
+Predicted Emotion: joy
+--------------------------------------------------
+Enter input: i was pleasantly surprised by the seafood pasta
+Input Phrase:
+i was pleasantly surprised by the seafood pasta
+Predicted Emotion: surprise
+--------------------------------------------------
+```
+

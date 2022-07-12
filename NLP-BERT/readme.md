@@ -92,3 +92,36 @@ Predicted Emotion: surprise
 --------------------------------------------------
 ```
 
+## Enhancing using Triplet Loss
+In an attempt to enhance the model, the triplet loss function is introduced to, hopefully, improve the `CLS` token's embeddings learnt. Run
+```
+python train_bert_emotion_triplet.py
+```
+to train the model which includes the triplet loss function.
+
+## Masked Language Modeling
+For Masked Language Modeling (MLM), run 
+```
+python train_bert_emotion_mlm.py
+```
+to train the model, and
+```
+python infer_bert_emotion_mlm.py
+```
+to perform inference. For the emotion classification dataset, the model's performance is as follows:
+```
+              precision    recall  f1-score   support
+
+       anger       0.91      0.93      0.92     14320
+        fear       0.89      0.88      0.88     11949
+         joy       0.94      0.93      0.93     35285
+        love       0.82      0.84      0.83      8724
+     sadness       0.95      0.95      0.95     30161
+    surprise       0.80      0.80      0.80      3764
+
+    accuracy                           0.92    104203
+   macro avg       0.88      0.89      0.89    104203
+weighted avg       0.92      0.92      0.92    104203
+```
+
+

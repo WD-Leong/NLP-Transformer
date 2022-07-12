@@ -123,5 +123,6 @@ to perform inference. For the emotion classification dataset, the model's perfor
    macro avg       0.88      0.89      0.89    104203
 weighted avg       0.92      0.92      0.92    104203
 ```
+Please note that the MLM is performed on the training corpus and not on an external corpus.
 
 

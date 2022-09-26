@@ -314,6 +314,16 @@ python movie_dialogue_torch_transformer_test.py
 ```
 to do inference. The data is pre-processed in the same manner as its Tensorflow counterpart.
 
+The original model in `torch_transformer_network.py` has been refactored to use `torch.nn.Module` in `torch_transformer.py`. To train the model, run
+```
+python train_movie_dialog_sw_torch_transformer.py
+```
+and run the command
+```
+python infer_movie_dialog_sw_torch_transformer
+```
+to perform inference after the model is trained.
+
 ## Trained Models
 Some of the trained models can be downloaded via:
 

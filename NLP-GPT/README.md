@@ -96,6 +96,16 @@ python movie_dialogue_torch_gpt_test.py
 ```
 The data is pre-processed in the same manner as its Tensorflow counterpart, but it is worth noting that the PyTorch code uses the Weighted Adam Optimizer `AdamW` and not the Adam optimizer.
 
+The original PyTorch GPT model in `torch_gpt_network.py` has been refactored to use `torch.nn.Module` in `torch_gpt.py`. The movie dialogue sub-word token model can be trained using the command
+```
+python train_movie_dialog_sw_torch_gpt.py
+```
+and inference can be performed via the command
+```
+python infer_movie_dialog_sw_torch_gpt.py
+```
+after the model has been trained.
+
 ## Trained Models
 Some of the trained models can be downloaded via:
 
